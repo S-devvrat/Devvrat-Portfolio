@@ -12,7 +12,7 @@ const ProjectsShowcase = () => {
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'MongoDB', 'Node.js'],
       liveLink: 'https://ntechzy.vercel.app/',
       type: 'fullstack',
-      image: '/images/ntechzy.jpg',
+      image: '/N.png',
       gradient: 'from-blue-500 to-cyan-600',
       features: ['E-commerce Platform', 'User Authentication', 'Admin Dashboard', 'Payment Integration']
     },
@@ -22,7 +22,7 @@ const ProjectsShowcase = () => {
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'Express.js'],
       liveLink: 'https://fancy-kitsune-f117e3.netlify.app/',
       type: 'fullstack',
-      image: '/images/dhanwantari.jpg',
+      image: '/dhan.png',
       gradient: 'from-purple-500 to-pink-600',
       features: ['College Portal', 'Course Management', 'Faculty Profiles', 'Event Calendar']
     },
@@ -32,7 +32,7 @@ const ProjectsShowcase = () => {
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
       liveLink: 'https://lovely-peony-82b6ce.netlify.app/',
       type: 'frontend',
-      image: '/images/sas-college.jpg',
+      image: '/SASimg.png',
       gradient: 'from-green-500 to-teal-600',
       features: ['Modern UI', 'Smooth Animations', 'Accessibility', 'Component Library']
     },
@@ -42,7 +42,7 @@ const ProjectsShowcase = () => {
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'GSAP'],
       liveLink: 'https://rainbow-babka-555e08.netlify.app/',
       type: 'frontend',
-      image: '/images/ntechzy-landing.jpg',
+      image: '/nlanding.png',
       gradient: 'from-orange-500 to-red-600',
       features: ['High Conversion', 'SEO Optimized', 'Analytics', 'A/B Testing']
     },
@@ -52,7 +52,7 @@ const ProjectsShowcase = () => {
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'React Spring'],
       liveLink: 'https://glittery-stroopwafel-21bcf1.netlify.app/',
       type: 'frontend',
-      image: '/images/suryadatta.jpg',
+      image: '/surya.png',
       gradient: 'from-indigo-500 to-purple-600',
       features: ['Brand Story', 'Interactive Design', 'Mobile First', 'Fast Loading']
     },
@@ -62,7 +62,7 @@ const ProjectsShowcase = () => {
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs'],
       liveLink: 'https://famous-pudding-fde077.netlify.app/',
       type: 'frontend',
-      image: '/images/bakson.jpg',
+      image: '/bakson.png',
       gradient: 'from-yellow-500 to-orange-600',
       features: ['Dynamic Content', 'API Integration', 'Cross-platform', 'Performance']
     }
@@ -70,6 +70,33 @@ const ProjectsShowcase = () => {
 
   const handleBackClick = () => {
     navigate('/');
+  };
+
+  // Image fallback component
+  const ImageWithFallback = ({ src, alt, className }) => {
+    const [imgError, setImgError] = React.useState(false);
+
+    if (imgError) {
+      return (
+        <div className={`${className} flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900`}>
+          <div className="text-center">
+            <div className="text-4xl mb-2">📷</div>
+            <p className="text-white/70 text-sm">{alt}</p>
+            <p className="text-white/50 text-xs">Preview</p>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <img 
+        src={src} 
+        alt={alt}
+        className={className}
+        onError={() => setImgError(true)}
+        onLoad={() => console.log(`Loaded: ${src}`)}
+      />
+    );
   };
 
   return (
@@ -124,7 +151,7 @@ const ProjectsShowcase = () => {
               index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
             }`}
           >
-            {/* Image Side - Made Responsive */}
+            {/* Image Side */}
             <motion.div 
               className="w-full lg:flex-1"
               whileHover={{ scale: 1.02 }}
@@ -151,12 +178,12 @@ const ProjectsShowcase = () => {
                     </div>
                     
                     {/* Image Content */}
-                    <div className="flex-1 bg-black/20 rounded-xl lg:rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl sm:text-6xl mb-2 sm:mb-4 opacity-60">🖼️</div>
-                        <p className="text-white/50 text-sm font-medium">{project.name}</p>
-                        <p className="text-white/30 text-xs mt-1">Project Screenshot</p>
-                      </div>
+                    <div className="flex-1 rounded-xl lg:rounded-2xl border border-white/10 overflow-hidden bg-black/20">
+                      <ImageWithFallback
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -167,7 +194,7 @@ const ProjectsShowcase = () => {
               </div>
             </motion.div>
 
-            {/* Content Side - Made Responsive */}
+            {/* Content Side */}
             <motion.div 
               className="w-full lg:flex-1 max-w-2xl mt-8 lg:mt-0"
               initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
@@ -272,7 +299,7 @@ const ProjectsShowcase = () => {
       </div>
 
       {/* Simple Back Button at Bottom */}
-      <div className="-mt-[135px] py-12 text-center">
+      <div className="py-12 text-center">
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
