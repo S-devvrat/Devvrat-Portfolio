@@ -3,25 +3,16 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ];
-
   const socialLinks = [
-    { name: 'GitHub', icon: '🐙', url: 'https://github.com/DevvratShukla' },
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/devvratshukla' },
-    { name: 'Email', icon: '📧', url: 'mailto:devvratshukla77469@gmail.com' },
+    { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/in/devvrat-shukla/' },
     { name: 'Resume', icon: '📄', url: '/pdf/Devvrat Shukla Resume.pdf' }
   ];
 
-  const technologies = [
-    'React', 'Next.js', 'TypeScript', 'Node.js', 
-    'Tailwind CSS', 'MongoDB', 'Python', 'Git'
-  ];
+  
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:devvratshukla77469@gmail.com';
+  };
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-white/10 overflow-hidden">
@@ -56,78 +47,37 @@ const Footer = () => {
               using modern technologies. Let's build something amazing together!
             </p>
 
-            {/* Technology Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {technologies.map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 text-sm hover:bg-cyan-500/10 hover:border-cyan-400/30 hover:text-cyan-300 transition-all duration-300"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
+            
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-1 h-1 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    {link.name}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+          {/* Empty column for spacing */}
+          <div className="hidden lg:block"></div>
 
-          {/* Connect Section */}
+          {/* Connect Section - Aligned to right */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
+            className="lg:text-right"
           >
-            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2 lg:justify-end">
               <span className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
               Let's Connect
             </h4>
             
             {/* Social Links */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4 mb-6 lg:flex lg:flex-col lg:items-end ">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.name}
-                  href={social.url}
+                  href={social.name === 'Email' ? undefined : social.url}
+                  onClick={social.name === 'Email' ? handleEmailClick : undefined}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-3 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-300 hover:bg-cyan-500/10 hover:border-cyan-400/30 hover:text-cyan-300 transition-all duration-300 group"
+                  className="flex items-center gap-3 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-gray-300 hover:bg-cyan-500/10 hover:border-cyan-400/30 hover:text-cyan-300 transition-all duration-300 group lg:w-auto lg:justify-end"
                   target={social.name !== 'Email' ? '_blank' : '_self'}
                   rel={social.name !== 'Email' ? 'noopener noreferrer' : ''}
                 >
@@ -140,7 +90,7 @@ const Footer = () => {
             </div>
 
             {/* Status Indicator */}
-            <div className="flex items-center gap-2 text-sm text-gray-400">
+            <div className="flex items-center gap-2 text-sm text-gray-400 lg:justify-end">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span>Available for new projects</span>
             </div>

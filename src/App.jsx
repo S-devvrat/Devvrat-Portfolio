@@ -41,9 +41,9 @@ const Home = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Hero />
       <Skills />
-      <TerminalContact />
       {!isMobile && <VerticalSplitSection />}
       <ProjectDeck />
+      <TerminalContact />
       <Footer/>
     </div>
   )
