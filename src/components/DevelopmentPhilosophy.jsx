@@ -82,20 +82,6 @@ const DevelopmentPhilosophy = () => {
               Every line of code tells a story. I believe in creating digital experiences 
               that not only function flawlessly but also make a meaningful impact on users' lives.
             </p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex gap-4"
-            >
-              <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                View Projects
-              </button>
-              <button className="px-8 py-4 border border-slate-600 text-slate-300 rounded-xl font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300">
-                Learn More
-              </button>
-            </motion.div>
           </motion.div>
 
           {/* Right Side - Rotating Principles */}

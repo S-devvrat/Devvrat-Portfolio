@@ -273,28 +273,6 @@ const Hero = () => {
                   </svg>
                 </span>
               </button>
-
-              <button
-                onClick={handleEmailClick}
-                className="group mb-5 px-6 py-4 border-2 border-slate-600 text-slate-300 rounded-xl font-medium transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-400/5 backdrop-blur-sm hover:scale-105"
-              >
-                <span className="flex items-center gap-2">
-                  Get In Touch
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:scale-110"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                    />
-                  </svg>
-                </span>
-              </button>
             </div>
           </div>
 
