@@ -5,8 +5,8 @@ import Skills from './components/Skills'
 import ProjectDeck from './components/ProjectDeck'
 import TerminalContact from './components/TerminalContact'
 import ProjectsShowcase from './components/ProjectsShowcase'
-import Footer from './components/Footer'
-import VerticalSplitSection from './components/VerticalSplitSection'
+import Footer from './components/Footer'; 
+import DevelopmentPhilosophy from './components/DevelopmentPhilosophy'
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -41,7 +41,7 @@ const Home = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Hero />
       <Skills />
-      {!isMobile && <VerticalSplitSection />}
+      <DevelopmentPhilosophy />
       <ProjectDeck />
       <TerminalContact />
       <Footer/>

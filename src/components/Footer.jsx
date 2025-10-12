@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const socialLinks = [
     { name: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/in/devvrat-shukla/' },
-    { name: 'Resume', icon: '📄', url: '/pdf/Devvrat Shukla Resume.pdf' }
+    { name: 'Resume', icon: '📄', url: '/pdf/Devvrat Shukla Resumee.pdf' }
   ];
 
   
